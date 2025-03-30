@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Selamat Idul Fitri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ucapan Selamat Idul Fitri 1446</h2>
+        <label for="nama">Masukkan Nama:</label>
+        <input type="text" id="nama" placeholder="Nama Anda">
+        <br><br>
+        <label for="umur">Masukkan Umur:</label>
+        <input type="number" id="umur" placeholder="Umur Anda">
+        <br><br>
+        <button onclick="tampilkanUcapan()">Kirim</button>
+        <p id="hasil"></p>
+    </div>
+    <script>
+        function ucapanSelamatIdulFitri(nama, umur) {
+            if (umur < 18) {
+                return `Selamat Idul Fitri, ${nama}! Semoga kamu tumbuh menjadi anak yang soleh.`;
+            } else if (umur >= 18 && umur < 60) {
+                return `Selamat Idul Fitri, ${nama}! Semoga amal ibadahmu diterima Allah SWT.`;
+            } else {
+                return `Selamat Idul Fitri, ${nama}! Semoga kamu diberikan kesehatan dan keberkahan.`;
+            }
+        }function tampilkanUcapan() {
+        let nama = document.getElementById("nama").value;
+        let umur = document.getElementById("umur").value;
+        let hasil = document.getElementById("hasil");
+        
+        if (nama === "" || umur === "") {
+            hasil.innerText = "Silakan masukkan nama dan umur!";
+            return;
+        }
+        
+        umur = parseInt(umur);
+        if (umur < 0) {
+            hasil.innerText = "Umur tidak bisa negatif!";
+        } else {
+            hasil.innerText = ucapanSelamatIdulFitri(nama, umur);
+        }
+    }
+</script>
+
+</body>
+</html>
